@@ -1,0 +1,27 @@
+<div class="form-group">
+    <label for="event-name" class="col-form-label">Событие</label>
+    <input  type="text" class="form-control" id="event-id" name="event-name"  [(ngModel)]="title"  required>
+  </div>
+  <div class="form-group">
+    <label for="description" class="col-form-label">Описание</label>
+    <textarea class="form-control" id="description-id" name="description"  [(ngModel)]="description"></textarea>
+  </div>
+  <div class="form-group">
+      <label for="inputState">Тип</label>
+      <select id="inputState" class="form-control" name="combobox" [(ngModel)]="taskType" required>
+        <option selected>None</option>
+        <option>Job</option>
+        <option>Home</option>
+        <option>Family</option>
+      </select>
+  </div>
+  <div class="form-group">
+      <label for="date">Дата</label>
+      <input  type="date" class="form-control" id="date" name="date" [ngModel]="task.date | date:'yyyy-MM-dd'" (ngModelChange)="dateChanged($event)" required>
+  </div>
+  <div class="form-group">
+    <label for="time">Время</label>
+    <input type="time" class="form-control" id="time" name="time" [ngModel]="time" (ngModelChange)="timeChanged($event)" required>
+  </div>
+  <button type="button" class="btn btn-secondary" data-dismiss="modal" routerLink="/">Назад</button>
+  <button style="margin-left: 10px" type="button" class="btn btn-primary" (click)="editTask(title,description,taskType,date,time)">Изменить</button>
